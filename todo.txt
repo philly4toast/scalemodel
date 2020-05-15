@@ -1,0 +1,23 @@
+GOAL: convert mockup to react app (focus on functionality, figure out what problem youd like to solve) SMALL SMALL step that will move you forward. Spend a lot more time to get comfortable with react
+-where to start?
+  X use react to render SOMETHING
+    X get react defined in the browser
+X render static grocery list using react
+   x separate one coponent out into its own variable
+  X 'link' the variable created to a different file (get SOMETHING from x other file into index.jsx file)
+   put formComponent (created variable) in other file, replacing SOMETHING.
+- adding item and quantity
+
+
+
+AFTER
+- understand the rules that govern "import" and "export" keywords
+
+
+
+
+
+
+  -render a grocery list
+    -each item should have a quantity
+  -add items to our grocery list
