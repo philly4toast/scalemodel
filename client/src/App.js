@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import sampleData from "../../DB/sampleData.js"
 import ModelItem from './ModelItem.js';
-
+import {ajax} from 'jquery'
 
 class App extends Component {
   constructor(props){
@@ -12,18 +12,18 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  // componentDidMount(){
-  //   // this.getModelList();
-  // }
+  componentDidMount(){
+    this.getModelList();
+  }
 
-  // getModelList() {
-  //   ajax({
-  //     method: "GET",
-  //     url: '/ammo',
-  //     success: (response)=>console.log(response),
-  //     error: (e)=>console.log(console.log(e))
-  //   })
-  // }
+  getModelList() {
+    ajax({
+      method: "GET",
+      url: '/ammo',
+      success: (response)=>console.log(response),
+      error: (e)=>console.log(console.log(e))
+    })
+  }
 
 
   handleChange(id){

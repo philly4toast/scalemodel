@@ -6,6 +6,8 @@ const app = express();
 const port = 3000;
 const CircularJSON = require('circular-json');
 
+//import sampledata and have get handler seed info
+
 
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -14,6 +16,11 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 app.listen(port, () => console.log(`Going on port: ${port}`));
 //...define the routes
 
+app.get('/ammo', (req, res) => {
+  console.log('server up')
+    res.send({foo: "sfds"})
+    // if (error) throw error;
+});
 
 
 
