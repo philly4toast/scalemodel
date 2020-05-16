@@ -20,7 +20,11 @@ class App extends Component {
     ajax({
       method: "GET",
       url: '/ammo',
-      success: (response)=>console.log(response),
+      success: (response)=>{
+        this.setState(
+          {models: response}
+        )
+      },
       error: (e)=>console.log(console.log(e))
     })
   }

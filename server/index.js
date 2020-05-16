@@ -41,13 +41,16 @@ app.listen(port, () => console.log(`Going on port: ${port}`));
 app.get('/ammo', (req, res) => {
   connection.query('SELECT * FROM models', function (error, results, fields) {
     const modelList = results.reduce(function (accumulator, modelObj) {
-      accumulator.id = modelObj.id
-     accumulator.name = modelObj.model_name
-     accumulator.description = modelObj.description
-     accumulator.completed = modelObj.completed
+      accumulator.push({
+        id: modelObj.id,
+        name: modelObj.model_name,
+        description: modelObj.description,
+        completed: modelObj.completed
+      })
+      console.log(accumulator)
      return accumulator;
     
-    }, {})
+    }, [])
     res.send(modelList)
     if (error) throw error;
  })
