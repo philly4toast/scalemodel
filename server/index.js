@@ -12,16 +12,46 @@ const CircularJSON = require('circular-json');
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
+
+
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'jezebel',
+  database: 'ww2Mod'
+});
+
+connection.connect();
 //needs to be listening...
 app.listen(port, () => console.log(`Going on port: ${port}`));
 //...define the routes
 
-app.get('/ammo', (req, res) => {
-  console.log('server up')
-    res.send({foo: "sfds"})
-    // if (error) throw error;
-});
+// app.get('/ammo', (req, res) => {
 
+//     connection.query('SELECT * FROM models', function (error, results, fields){
+//       console.log(results)
+
+
+//     }, {})
+//     res.send('hello')
+//     if (error) throw error;
+// });
+
+app.get('/ammo', (req, res) => {
+  connection.query('SELECT * FROM models', function (error, results, fields) {
+    const modelList = results.reduce(function (accumulator, modelObj) {
+      accumulator.id = modelObj.id
+     accumulator.name = modelObj.model_name
+     accumulator.description = modelObj.description
+     accumulator.completed = modelObj.completed
+     return accumulator;
+    
+    }, {})
+    res.send(modelList)
+    if (error) throw error;
+ })
+});
 
 
 
