@@ -29,11 +29,14 @@ class App extends Component {
     })
   }
 
-  updateModelList() {
+  
+
+  updateModelList() { 
     ajax({
       method: "PUT",
       url: '/ammo',
-      success: (response)=>console.log(response),
+      data: 'bobby brown',
+      success: (response)=> console.log(response),
       error: (e)=>console.log(console.log(e))
     })
   }
@@ -52,8 +55,9 @@ class App extends Component {
       })
       return {models: newStatus}
     })
+
     this.updateModelList()
-    console.log('you just clicked on model # ', id)
+    // console.log('you just clicked on model # ', id)
   }
 
 

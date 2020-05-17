@@ -11,7 +11,8 @@ const CircularJSON = require('circular-json');
 
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
-
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })) 
 
 
 var mysql = require('mysql');
@@ -59,6 +60,8 @@ app.get('/ammo', (req, res) => {
 });
 
 app.put('/ammo', function (req, res) {
+  console.log(req.body)
+
   res.send('Got a PUT request at /ammo')
 })
 
