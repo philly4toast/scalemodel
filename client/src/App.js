@@ -31,34 +31,35 @@ class App extends Component {
 
   
 
-  updateModelList(id) { 
-    console.log(id)
+  updateModelList(model) { 
+    console.log(model)
     ajax({
       method: "PUT",
       url: '/ammo',
-      data: {modelID: id},
+      data: {model},
       success: (response)=> console.log(response),
       error: (e)=>console.log(console.log(e))
     })
   }
 
 
-  handleChange(id){
+  handleChange(modelObj){
     this.setState(prevState=>{
       const newStatus = prevState.models.map(model=>{
-        // var modelCopy = model;
-        if (model.id === id){
 
-            model.completed= !model.completed
+        if (model.id === modelObj.id){
           
+          model.completed= !model.completed
+          this.updateModelList(model)
         }
         return model;
       })
       return {models: newStatus}
-    })
+      
+    }
+    )
 
-    this.updateModelList(id)
-    console.log('you just clicked on model # ', id)
+    // console.log('you just clicked on model # ', modelObj)
   }
 
 

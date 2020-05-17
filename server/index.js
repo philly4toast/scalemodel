@@ -26,18 +26,6 @@ var connection = mysql.createConnection({
 connection.connect();
 //needs to be listening...
 app.listen(port, () => console.log(`Going on port: ${port}`));
-//...define the routes
-
-// app.get('/ammo', (req, res) => {
-
-//     connection.query('SELECT * FROM models', function (error, results, fields){
-//       console.log(results)
-
-
-//     }, {})
-//     res.send('hello')
-//     if (error) throw error;
-// });
 
 app.get('/ammo', (req, res) => {
   connection.query('SELECT * FROM models', function (error, results, fields) {
@@ -50,7 +38,6 @@ app.get('/ammo', (req, res) => {
         imageURL: modelObj.rawProjImgURL,
         completedURL: modelObj.completedProjImgURL
       })
-      // console.log(accumulator)
      return accumulator;
     
     }, [])
@@ -60,13 +47,14 @@ app.get('/ammo', (req, res) => {
 });
 
 app.put('/ammo', function (req, res) {
-  const thisID = Number(req.body.modelID);
-  // completedStatus = !modelObj.completed
+  var thisID = Number(req.body.model.id);
+  var completedStatus = req.body.model.completed
+  console.log(completedStatus)
   
   connection.query(
-    `UPDATE models SET completed=false WHERE id=('${thisID}') `
+    `UPDATE models SET completed=(${completedStatus}) WHERE id=('${thisID}') `
     );
-  console.log('the req.body is', thisID)
+  // console.log('the req.body is', thisID)
   // console.log(JSON.parse(req.body))
 
   

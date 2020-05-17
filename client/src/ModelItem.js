@@ -25,7 +25,7 @@ class ModelItem extends React.Component{
             checked={model.completed}
             id={model.id}
             onChange={
-              ()=>handleChange(model.id)
+              ()=>handleChange(model)
             } />
           <p>{model.name} - {model.description}</p>
         </div>
