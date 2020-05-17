@@ -45,7 +45,7 @@ app.get('/ammo', (req, res) => {
         id: modelObj.id,
         name: modelObj.model_name,
         description: modelObj.description,
-        completed: modelObj.completed
+        completed: modelObj.completed === 'true'
       })
       console.log(accumulator)
      return accumulator;

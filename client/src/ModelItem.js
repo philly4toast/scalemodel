@@ -27,7 +27,7 @@ class ModelItem extends React.Component{
             onChange={
               ()=>handleChange(model.id)
             } />
-          <p>{model.text}</p>
+          <p>{model.name} - {model.description}</p>
         </div>
         <img className="thumbnail" src={imgSrc}/>
       </div>
