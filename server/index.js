@@ -49,7 +49,7 @@ app.get('/ammo', (req, res) => {
         imageURL: modelObj.rawProjImgURL,
         completedURL: modelObj.completedProjImgURL
       })
-      console.log(accumulator)
+      // console.log(accumulator)
      return accumulator;
     
     }, [])
@@ -57,6 +57,10 @@ app.get('/ammo', (req, res) => {
     if (error) throw error;
  })
 });
+
+app.put('/ammo', function (req, res) {
+  res.send('Got a PUT request at /ammo')
+})
 
 
 
