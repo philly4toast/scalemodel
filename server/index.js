@@ -60,8 +60,16 @@ app.get('/ammo', (req, res) => {
 });
 
 app.put('/ammo', function (req, res) {
-  console.log(req.body)
+  const thisID = Number(req.body.modelID);
+  // completedStatus = !modelObj.completed
+  
+  connection.query(
+    `UPDATE models SET completed=false WHERE id=('${thisID}') `
+    );
+  console.log('the req.body is', thisID)
+  // console.log(JSON.parse(req.body))
 
+  
   res.send('Got a PUT request at /ammo')
 })
 

@@ -35,6 +35,13 @@ INSERT INTO `models` (`model_name`,`description`,`completed`,`rawProjImgURL`,`co
 -- 
 -- ---
 
+-- updating row values
+`UPDATE `models`
+SET completed = completedStatus
+WHERE id=(`${id}`);`
+
+
+
 -- DROP TABLE IF EXISTS `pictures`;
 		
 -- CREATE TABLE `pictures` (
