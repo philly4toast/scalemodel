@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "npx nodemon server/index.js"
+    "start": "npx nodemon server/index.js",
+    "debug": "node --nolazy --inspect-brk=9229 ./server/"
   },
   "author": "Beth Johnson",
   "license": "ISC",
