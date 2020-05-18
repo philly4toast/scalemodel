@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import sampleData from "../../DB/sampleData.js"
 import ModelItem from './ModelItem.js';
 import {ajax} from 'jquery'
+import AddModelInfo from './AddModelInfo'
 
 class App extends Component {
   constructor(props){
@@ -79,6 +80,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1> Quarantine Models </h1>
+          <AddModelInfo/>
         <h2>{todoModels}</h2>
       </div>
     );
