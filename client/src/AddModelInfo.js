@@ -5,9 +5,24 @@ class AddModelInfo extends React.Component {
   render(){
     return (
       <form>
-      name: <input></input>
-      description: <input></input>
-      some label: <input></input>
+        <label> Model Name:     
+          <input/>
+        </label>
+
+        <label> Description:     
+          <input/>
+        </label>
+
+        <label> Picture 1:     
+          <input/>
+        </label>
+
+        <label> Picture 2:     
+          <input/>
+        </label>
+
+        <button>add</button>
+
     </form>
     )
   }
