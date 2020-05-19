@@ -1,6 +1,25 @@
 import React from 'react'
+import {ajax} from 'jquery'
 
 class ModelItem extends React.Component{
+  constructor(props){
+    super()
+    this.deleteModel = this.deleteModel.bind(this)
+  }
+
+
+
+  deleteModel(modelId) { 
+    console.log(modelId)
+    ajax({
+      method: "DELETE",
+      url: '/ammo',
+      data: {modelId},
+      success: (response)=> console.log(response),
+      error: (e)=>console.log(console.log(e))
+    })
+  }
+
   render(){
     var completedStyle = {
       backgroundColor: 'black',
@@ -30,6 +49,9 @@ class ModelItem extends React.Component{
           <p>{model.name} - {model.description}</p>
         </div>
         <img className="thumbnail" src={imgSrc}/>
+        <button onClick={()=>this.deleteModel(model.id)}>
+          Discard
+        </button>
       </div>
     )
   }

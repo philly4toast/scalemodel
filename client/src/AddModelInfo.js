@@ -35,29 +35,29 @@ class AddModelInfo extends React.Component {
     this.setState({ picture2: event.target.value })
   }
   addModelToModelList(event){
-    console.log(console.log('modesl', this.state))
 
     const kitName = this.state.modelName
     const kitDesc = this.state.modelDesc
     const pic1 = this.state.picture1
     const pic2 = this.state.picture2
-console.log(kitName, kitDesc, pic1, pic2)
-    if ((kitName || kitDesc || pic1 || pic2) === ''){
+    if (kitName === ''|| kitDesc === ''|| pic1 === '' || pic2 === ''){
       alert('INFO missing: check boxes')
       event.preventDefault();
+      
     }else if ((pic1 || pic2).indexOf('jpg' || 'jpeg') === -1) {
-      alert('INFO missing: check boxes')
+      alert('INFO missing: img url incorrect: is not a jpeg')
       event.preventDefault();
-    } {
-      // this.setState(
-      //   {
-      //     modelName: '',
-      //     modelDesc: '',
-      //     picture1: '',
-      //     picture2: '',
-      //     completed: false
-      //   }
-      // )
+      return;
+    }else {
+      this.setState(
+        {
+          modelName: '',
+          modelDesc: '',
+          picture1: '',
+          picture2: '',
+          completed: false
+        }
+      )
       ajax(
         {
           method: "POST",

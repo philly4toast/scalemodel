@@ -33,7 +33,6 @@ class App extends Component {
   
 
   updateModelList(model) { 
-    console.log(model)
     ajax({
       method: "PUT",
       url: '/ammo',

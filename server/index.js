@@ -71,8 +71,12 @@ app.post('/ammo', (req, res) => {
   res.send('got a POST request at /ammo')
 });
 
-
-
-
-
-
+app.delete('/ammo', (req, res) => {
+  console.log(req.body.modelId)
+  var deletingID = req.body.modelId;
+  connection.query(`
+  DELETE FROM models WHERE id='${deletingID}'
+`)
+// app.get();
+  res.send('got a DELETE request at /ammo')
+})
