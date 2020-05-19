@@ -15,7 +15,7 @@ class ModelItem extends React.Component{
       method: "DELETE",
       url: '/ammo',
       data: {modelId},
-      success: (response)=> console.log(response),
+      success: ()=> window.location.reload(),
       error: (e)=>console.log(console.log(e))
     })
   }

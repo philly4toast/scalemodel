@@ -77,6 +77,7 @@ app.delete('/ammo', (req, res) => {
   connection.query(`
   DELETE FROM models WHERE id='${deletingID}'
 `)
-// app.get();
+
+
   res.send('got a DELETE request at /ammo')
 })
