@@ -65,7 +65,7 @@ console.log(kitName, kitDesc, pic1, pic2)
                   completed: false
            },
           // success: (data) => (this.getGroceryList())
-          success: ()=> console.log('tiiips tiiiips tiiiips'),
+          success: (response)=> console.log(response),
           error: (blah)=>(console.log("error adding item"))
         }
       )

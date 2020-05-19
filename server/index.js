@@ -49,7 +49,7 @@ app.get('/ammo', (req, res) => {
 app.put('/ammo', function (req, res) {
   var thisID = Number(req.body.model.id);
   var completedStatus = req.body.model.completed
-  console.log(completedStatus)
+  // console.log(completedStatus)
   connection.query(
     `UPDATE models SET completed=(${completedStatus}) WHERE id=('${thisID}') `
     );
