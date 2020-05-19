@@ -59,7 +59,15 @@ app.put('/ammo', function (req, res) {
 })
 
 app.post('/ammo', (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
+  var kitMoName = req.body.name;
+  var kitMoDesc = req.body.description;
+  var picture1 = req.body.picture1;
+  var picture2 = req.body.picture2;
+  connection.query(`
+    INSERT INTO models (model_name,description,completed,rawProjImgURL,completedProjImgURL) 
+    VALUES ( '${kitMoName}' , '${kitMoDesc}', false, '${picture1}', '${picture2}');
+  `)
   res.send('got a POST request at /ammo')
 });
 

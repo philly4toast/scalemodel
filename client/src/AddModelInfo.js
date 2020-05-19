@@ -44,7 +44,11 @@ class AddModelInfo extends React.Component {
 console.log(kitName, kitDesc, pic1, pic2)
     if ((kitName || kitDesc || pic1 || pic2) === ''){
       alert('INFO missing: check boxes')
-    }else {
+      event.preventDefault();
+    }else if ((pic1 || pic2).indexOf('jpg' || 'jpeg') === -1) {
+      alert('INFO missing: check boxes')
+      event.preventDefault();
+    } {
       // this.setState(
       //   {
       //     modelName: '',
@@ -64,18 +68,12 @@ console.log(kitName, kitDesc, pic1, pic2)
                   picture2: pic2,
                   completed: false
            },
-          // success: (data) => (this.getGroceryList())
           success: (response)=> console.log(response),
           error: (blah)=>(console.log("error adding item"))
-        }
-      )
-
-
-      console.log('boopeepboop: connect to server')
-
+      })
     }
 
-    event.preventDefault();
+    // event.preventDefault();
   }
 
   render() {
