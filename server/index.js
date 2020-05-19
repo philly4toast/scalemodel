@@ -50,18 +50,18 @@ app.put('/ammo', function (req, res) {
   var thisID = Number(req.body.model.id);
   var completedStatus = req.body.model.completed
   console.log(completedStatus)
-  
   connection.query(
     `UPDATE models SET completed=(${completedStatus}) WHERE id=('${thisID}') `
     );
   // console.log('the req.body is', thisID)
   // console.log(JSON.parse(req.body))
-
-  
   res.send('Got a PUT request at /ammo')
 })
 
-
+app.post('/ammo', (req, res) => {
+  console.log(req.body)
+  res.send('got a POST request at /ammo')
+});
 
 
 
