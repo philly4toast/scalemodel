@@ -78,7 +78,7 @@ class AddModelInfo extends React.Component {
 
   render() {
     return (
-      <form className="form" onSubmit={this.addModelToModelList}>
+      <form id="form" onSubmit={this.addModelToModelList}>
         <label> Model Name:
           <input type="text" name={this.state.modelName} value={this.state.modelName} placeholder='Make and model' onChange={this.typingModelName} />
         </label>

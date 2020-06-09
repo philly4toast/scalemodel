@@ -29,9 +29,7 @@ class App extends Component {
       error: (e)=>console.log(console.log(e))
     })
   }
-
   
-
   updateModelList(model) { 
     ajax({
       method: "PUT",
@@ -41,7 +39,6 @@ class App extends Component {
       error: (e)=>console.log(console.log(e))
     })
   }
-
 
   handleChange(modelObj){
     this.setState(prevState=>{
@@ -54,12 +51,8 @@ class App extends Component {
         }
         return model;
       })
-      return {models: newStatus}
-      
-    }
-    )
-
-    // console.log('you just clicked on model # ', modelObj)
+      return {models: newStatus} 
+    })
   }
 
 
@@ -72,13 +65,13 @@ class App extends Component {
           key={model.id}
           model={model} 
           handleChange={this.handleChange}
-          />
+        />
       )
     })
 
     return (
       <div className="App">
-        <h1> Quarantine Models </h1>
+        <h1 id='title'> quarantine MODELS </h1>
           <AddModelInfo/>
         <h2>{todoModels}</h2>
       </div>

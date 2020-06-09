@@ -1,31 +1,29 @@
 import React from 'react'
-import {ajax} from 'jquery'
+import { ajax } from 'jquery'
 
-class ModelItem extends React.Component{
-  constructor(props){
+class ModelItem extends React.Component {
+  constructor(props) {
     super()
     this.deleteModel = this.deleteModel.bind(this)
   }
 
-
-
-  deleteModel(modelId) { 
+  deleteModel(modelId) {
     console.log(modelId)
     ajax({
       method: "DELETE",
       url: '/ammo',
-      data: {modelId},
-      success: ()=> window.location.reload(),
-      error: (e)=>console.log(console.log(e))
+      data: { modelId },
+      success: () => window.location.reload(),
+      error: (e) => console.log(console.log(e))
     })
   }
 
-  render(){
+  render() {
     var completedStyle = {
-      backgroundColor: 'black',
+      backgroundColor: 'rgb(0,102,0,0.5)',
       fontStyle: 'italic',
-      color: 'gray',
-      textDecoration: 'line-through'
+      color: 'rgb(1,1,1,0.4)',
+      // textDecoration: 'line-through'
     }
 
     const {
@@ -38,35 +36,22 @@ class ModelItem extends React.Component{
 
     return (
       <div className="models" style={style} >
-        <div>
+
           <input
             type='checkbox'
             checked={model.completed}
             id={model.id}
             onChange={
-              ()=>handleChange(model)
-            } />
-          <p>{model.name} - {model.description}</p>
-        </div>
-        <img className="thumbnail" src={imgSrc}/>
-        <button onClick={()=>this.deleteModel(model.id)}>
+              () => handleChange(model)} />
+          <p id='desc'>{model.name} - {model.description}</p>
+
+        <img className="thumbnail" src={imgSrc} />
+        <button onClick={() => this.deleteModel(model.id)}>
           Discard
         </button>
       </div>
     )
   }
 }
-
-// function ModelItem(props){
-//   return (
-//     <div>
-//     <div className="models">
-//       <input type='checkbox' checked={props.model.completed} id={props.model.id} onChange={()=>props.handleChange(props.model.id)} />
-//       <p>{props.model.text}</p>
-//     </div>
-//       <img className="thumbnail" src={props.model.imageURL}/>
-//       </div>
-//   )
-// }
 
 export default ModelItem;
