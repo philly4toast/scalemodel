@@ -9,4 +9,9 @@ CODING RELEVANCE for LEARNING
 This is an app to exercise CRUD operations. Some languages/terms to be familiar with: HTML, REACT, JQUERY, AJAX, SQL, EXPRESS
 
 HOW TO GET APP STARTED
-1. CLONE from git
+1. CLONE from git 
+
+-hypothesis-
+2. Set up dev environment (?)
+  Make sure all dependencies are installed
+  Start server, and database
