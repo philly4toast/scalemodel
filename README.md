@@ -17,7 +17,30 @@ HOW TO GET APP STARTED
   Start server, and database
 
 3. SET UP DATABASE
-  My hypothesis is that the database needs to be seeded. The error that we are currently receiving - sqlState: '08004' indicates that our source database is not available locally. 
-    It appears we need to have certain databases made available first. 
+  1. Change root password to password matching this project (under server index.js), as well as adding the database 'ww2mod' 
+  2. after logging into your mysql server, run ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'jezebel';
+      Certain authentications need to happen with root. this command allows using 'root' at database to be used? 
+  3. ***Check dependencies
+      using 'npm list' we can see which dependencies have been installed in our project. I found that sqlite3 was SQLite version 3.28.0 when our project required ^4.0.6. 'brew upgrade sqlite3' was used to update. (Seems homebrew needed to update as well. This usually takes a while!)
 
-    q: Why does the page fail to start up? Shouldn't we be able to see our basic HTML mockup without the data(pictures/details) on the page?  
+
+
+q: Why does the page fail to start up? Shouldn't we be able to see our basic HTML mockup without the data(pictures/details) on the page?  
+  
+  Browser
+        ERROR: Cannot GET /
+  Console:
+        GET http://localhost:3000/ 404 (Not Found)
+
+
+
+
+
+4. NPM start (to start/watch BE server - ??)
+
+5. NPM run react-dev ()
+
+
+
+
+
