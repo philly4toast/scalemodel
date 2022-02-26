@@ -1,3 +1,13 @@
+
+
+QUESTIONS:
+Previous version had a database set up specific to localhost... root user with a particular password. 
+    as per best practices, how do we set up database password/login/database basics for coders who may want to fork this repo? 
+
+
+
+
+
 sample data (practice seeding for your app?)
 
 testing? 

@@ -27,6 +27,10 @@ connection.connect();
 //needs to be listening...
 app.listen(port, () => console.log(`Going on port: ${port}`));
 
+app.get('/', (request, response) => {
+  response.json({ info: 'HOW DO I GET MY PAGE TO LOAD INSTEAD OF THIS QUOTE' })
+})
+
 app.get('/ammo', (req, res) => {
   connection.query('SELECT * FROM models', function (error, results, fields) {
     const modelList = results.reduce(function (accumulator, modelObj) {
