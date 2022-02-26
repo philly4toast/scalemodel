@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import sampleData from "../../DB/sampleData.js"
+// import sampleData from "../../DB/sampleData.js"
 import ModelItem from './ModelItem.js';
 import {ajax} from 'jquery'
 import AddModelInfo from './AddModelInfo'
